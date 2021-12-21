@@ -454,15 +454,15 @@ h4 {
 .about-us__background .background__wave-1 {
   top: 0;
   left: 0;
-  -webkit-animation: waving-1 10s ease-in-out infinite;
-          animation: waving-1 10s ease-in-out infinite;
+  -webkit-animation: waving-1 17s ease-in-out infinite;
+          animation: waving-1 17s ease-in-out infinite;
 }
 
 .about-us__background .background__wave-2 {
   top: 0;
   left: -1080px;
-  -webkit-animation: waving-2 13s ease-in-out infinite;
-          animation: waving-2 13s ease-in-out infinite;
+  -webkit-animation: waving-2 20s ease-in-out infinite;
+          animation: waving-2 20s ease-in-out infinite;
 }
 
 @-webkit-keyframes waving-1 {
