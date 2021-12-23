@@ -1137,6 +1137,137 @@ h4 {
   margin-bottom: 18px;
 }
 
+.testimonials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 100px 0;
+  min-width: 0;
+}
+
+.testimonials__text {
+  max-width: 450px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #666666;
+}
+
+.testimonials__slider .swiper-wrapper {
+  margin-bottom: 30px;
+  min-width: 0;
+  list-style: none;
+}
+
+.testimonials__slider .swiper-slide {
+  padding: 0 15px;
+  max-width: 570px;
+  opacity: 0.5;
+}
+
+.testimonials__slider .swiper-slide-active, .testimonials__slider .swiper-slide-next {
+  opacity: 1;
+}
+
+.testimonials__slider .swiper-slide-active .slide__inner {
+  -webkit-box-shadow: 15px 25px 60px -10px rgba(0, 0, 0, 0.1);
+          box-shadow: 15px 25px 60px -10px rgba(0, 0, 0, 0.1);
+  border-color: #fff;
+}
+
+.testimonials__slider .slide__inner {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  border: 2px solid #eeeeee;
+  padding: 25px 30px;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+
+.testimonials__slider .slide__inner::after {
+  position: absolute;
+  content: url(../img/quotes.svg);
+  z-index: -1;
+}
+
+.testimonials__slider .slide__inner .item__text {
+  margin-bottom: 30px;
+  color: #888888;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+.testimonials__slider .slide__inner .item__photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.testimonials__slider .slide__inner .item__person-name, .testimonials__slider .slide__inner .item__person-profi {
+  font-size: 0.85em;
+  line-height: 1.4em;
+}
+
+.testimonials__slider .slide__inner .item__person-name {
+  font-family: 'Gilroy Semibold';
+}
+
+.testimonials__slider .slide__inner .item__person-profi {
+  font-family: 'Gilroy Medium';
+  color: #888888;
+}
+
+.testimonials__slider .slider__dots {
+  position: relative;
+  bottom: 0 !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 12px;
+}
+
+.testimonials__slider .slider__dots .dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: #dddddd;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.testimonials__slider .slider__dots .dot--active {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  background: #f25822;
+}
+
 .footer {
   width: 100%;
   background: #f3f3f3;

@@ -958,6 +958,119 @@ h4 {
   }
 }
 
+.testimonials {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 0;
+  min-width: 0;
+
+  &__text {
+    max-width: 450px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: $darkgray;
+  }
+
+  &__slider {
+
+    .swiper-wrapper {
+      margin-bottom: 30px;
+      min-width: 0;
+      list-style: none;
+    }
+
+    .swiper-slide {
+      padding: 0 15px;
+      max-width: 570px;
+      opacity: 0.5;
+
+      &-active, &-next {
+        opacity: 1;
+      }
+
+      &-active .slide__inner {
+        box-shadow: 15px 25px 60px -10px rgba(#000000, .1);
+        border-color: $white;
+      }
+    }
+
+    .slide__inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      border: 2px solid #eeeeee;
+      padding: 25px 30px;
+      transition: .3s ease-out;
+
+      &::after {
+        position: absolute;
+        content: url(../img/quotes.svg);
+        z-index: -1;
+      }
+
+      .item {
+
+        &__text {
+          margin-bottom: 30px;
+          color: #888888;
+          line-height: 1.5em;
+          text-align: center;
+        }
+
+        &__photo {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-bottom: 10px;
+        }
+
+        &__person-name, &__person-profi {
+          font-size: 0.85em;
+          line-height: 1.4em;
+        }
+
+        &__person-name {
+          font-family: 'Gilroy Semibold';
+        }
+
+        &__person-profi {
+          font-family: 'Gilroy Medium';
+          color: #888888;
+        }
+      }
+    }
+
+    .slider__dots {
+      position: relative;
+      bottom: 0 !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 12px;
+
+      .dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin: 0 6px;
+        border-radius: 50%;
+        background: #dddddd;
+        cursor: pointer;
+        transition: all .2s;
+
+        &--active {
+          transform: scale(1.5);
+          background: $orange;
+        }
+      }
+    }
+  }
+}
+
 .footer {
   width: 100%;
   background: #f3f3f3;
@@ -1066,6 +1179,19 @@ h4 {
     border-top: 1px solid #cccccc;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
