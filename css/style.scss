@@ -507,6 +507,11 @@ h4 {
     font-size: 0.75em;
     color: $black;
     text-decoration: none;
+    transition: .15s ease-in-out;
+
+    &:hover {
+      color: $orange;
+    }
   }
 }
 
@@ -963,20 +968,19 @@ h4 {
   align-items: center;
   flex-direction: column;
   padding: 100px 0;
-  min-width: 0;
 
   &__text {
     max-width: 450px;
     margin-bottom: 50px;
-    text-align: center;
     color: $darkgray;
+    text-align: center;
+    line-height: 1.5em;
   }
 
   &__slider {
 
     .swiper-wrapper {
       margin-bottom: 30px;
-      min-width: 0;
       list-style: none;
     }
 
@@ -1040,6 +1044,181 @@ h4 {
         &__person-profi {
           font-family: 'Gilroy Medium';
           color: #888888;
+        }
+      }
+    }
+
+    .slider__dots {
+      position: relative;
+      bottom: 0 !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 12px;
+
+      .dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin: 0 6px;
+        border-radius: 50%;
+        background: #dddddd;
+        cursor: pointer;
+        transition: all .2s;
+
+        &--active {
+          transform: scale(1.5);
+          background: $orange;
+        }
+      }
+    }
+  }
+}
+
+.blog {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 100px 0;
+
+  &__text {
+    max-width: 570px;
+    margin-bottom: 50px;
+    color: $darkgray;
+    text-align: center;
+    line-height: 1.5em;
+  }
+
+  &__slider {
+
+    .swiper-wrapper {
+      margin-bottom: 30px;
+      list-style: none;
+    }
+
+    .swiper-slide {
+      padding: 0 15px;
+      max-width: 800px;
+      opacity: 0.5;
+
+      .item__content .item__link {
+        display: none;
+      }
+
+      &-active {
+        opacity: 1;
+
+        .slide__inner {
+          box-shadow: 15px 25px 60px -10px rgba(#000000, .1);
+          border-color: $white;
+        }
+
+        .item__content .item__link {
+          display: inline-block;
+        }
+      }
+    }
+
+    .slide__inner {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 330px;
+      border: 2px solid #eeeeee;
+      transition: .3s ease-out;
+
+      .item {
+
+        &__img-wrapper {
+          position: relative;
+          flex-basis: 370px;
+          flex-grow: 1;
+          flex-shrink: 0;
+          height: 100%;
+          overflow: hidden;
+
+          .item__img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        &__content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 30px;
+        }
+
+        &__title {
+          margin-bottom: 20px;
+          font-family: 'Gilroy Bold', sans-serif;
+          line-height: 1.5em;
+        }
+
+        &__info {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          max-width: 280px;
+
+          .info {
+
+            &__author, &__likes-counter, &__comments-counter {
+              display: flex;
+              align-items: center;
+              position: relative;
+              padding-left: 20px;
+              color: #888888;
+              font-family: 'Gilroy Medium', sans-serif;
+              font-size: 0.75em;
+              line-height: 1.35em;
+
+              &::before {
+                position: absolute;
+                left: 0;
+                height: 100%;
+              }
+            }
+
+            &__author::before {
+              content: url(../img/person-icon.svg);
+              top: 12%;
+            }
+
+            &__likes-counter::before {
+              content: url(../img/heart-icon.svg);
+              top: 12%;
+            }
+
+            &__comments-counter::before {
+              content: url(../img/message-icon.svg);
+              top: 8%;
+            }
+          }
+        }
+
+        &__text {
+          margin-bottom: 25px;
+          color: $darkgray;
+          font-family: 'Gilroy Medium', sans-serif;
+          font-size: 0.95em;
+          line-height: 1.45em;
+        }
+
+        &__link {
+          font-family: 'Gilroy Bold';
+          font-size: 0.75em;
+          color: $black;
+          text-decoration: none;
+          transition: .15s ease-in-out;
+
+          &:hover {
+            color: $orange;
+          }
         }
       }
     }
