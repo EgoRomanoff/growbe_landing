@@ -39,10 +39,12 @@
   font-style: normal;
 }
 // ===== VARS =====
+$trueblack: #000;
 $black: #141414;
-$darkgray: #666666;
-$gray: #aaaaaa;
-$lightgray: #eeeeee;
+$darkgray: #666;
+$gray: #aaa;
+$lightgray: #eee;
+$lightergray: #fafafa;
 $white: #fff;
 $orange: #f25822;
 $green: #149211;
@@ -78,14 +80,15 @@ h1 {
 
 h2 {
   font-size: 2.82em;
+  line-height: 3.3rem;
 }
 
 h3 {
   font-size: 1.5em;
+  line-height: 1.75rem;
 }
 
 h4 {
-  font-family: 'Gilroy Bold';
   font-size: 1.25em;
 }
 // ===== COMMON =====
@@ -367,7 +370,6 @@ h4 {
 }
 // ===== /HOMEPAGE =====
 // ===== BRANDS =====
-// TODO: responsive line of elements
 .brands {
 
   &__inner {
@@ -391,124 +393,67 @@ h4 {
   }
 }
 // ===== /BRANDS =====
+// ===== ABOUT US =====
 .about-us {
-  background: #fafafa;
+  background: $lightergray;
   z-index: 0;
 
   &__inner {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     max-width: 515px;
-    padding: 125px 0;
+    height: 540px;
   }
 
-  &__text {
-    // line-height: 24px
-  }
+  .background {
 
-  &__background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: -1;
+    }
 
-    .background {
-      &__img {
+    &__wave {
+      &-1, &-2 {
         position: absolute;
         top: 0;
-        right: 14%;
-        height: 100%;
+        z-index: -1;
       }
 
-      &__wave {
-        &-1, &-2 {
-          position: absolute;
-          z-index: -1;
-        }
+      &-1 {
+        left: 0;
+        animation: waving-1 17s ease-in-out infinite;
+      }
 
-        &-1 {
-          top: 0;
-          left: 0;
-          animation: waving-1 17s ease-in-out infinite;
-        }
-
-        &-2 {
-          top: 0;
-          left: -1080px;
-          animation: waving-2 20s ease-in-out infinite;
-        }
+      &-2 {
+        left: -1080px;
+        animation: waving-2 20s ease-in-out infinite;
       }
     }
   }
 }
-
-@keyframes scaling {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.7);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes waving-1 {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-1080px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes waving-2 {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(1080px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
+// ===== /ABOUT US =====
+// ===== FEATURES =====
 .features {
+  padding: 100px 0;
 
   &__inner {
     display: flex;
     justify-content: space-between;
-    padding: 100px 0;
   }
 
   &__card {
     position: relative;
-    max-width: 370px;
-    padding: 30px;
-    padding-top: 125px;
+    flex: 0 1 370px;
+    padding: 125px 30px 30px;
     background: $white;
     transition: box-shadow .3s ease-out;
+
+    & + & {
+      margin-left: 30px;
+    }
 
     &::before {
       position: absolute;
@@ -536,112 +481,119 @@ h4 {
     }
 
     &:hover {
-      box-shadow: 15px 25px 56px 6px rgba(#000000, .06);
+      box-shadow: 15px 25px 56px 6px rgba($trueblack, .06);
     }
   }
 
-  &__title {
-    margin-bottom: 18px;
-  }
+  .card {
 
-  &__text {
-    color: $darkgray;
-    line-height: 22.5px;
-    margin-bottom: 25px;
-  }
+    &__title {
+      margin-bottom: 18px;
+    }
 
-  &__link {
-    font-family: 'Gilroy Bold';
-    font-size: 0.75em;
-    color: $black;
-    text-decoration: none;
-    transition: .15s ease-in-out;
+    &__text {
+      margin-bottom: 25px;
+      color: $darkgray;
+      font: .875rem/1.31rem 'Gilroy Regular', sans-serif;
+    }
 
-    &:hover {
-      color: $orange;
+    &__link {
+      color: $black;
+      font: .75rem/1rem 'Gilroy Bold', sans-serif;
+      text-decoration: none;
+      transition: .15s ease-in-out;
+
+      &:hover {
+        color: $orange;
+      }
     }
   }
 }
-
+// ===== /FEATURES =====
+// ===== SERVICES =====
 .services {
-  background: #fafafa;
+  background: $lightergray;
+  padding: 100px 0;
 
   &__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0;
-  }
-
-  &__title {
-    margin-bottom: 20px;
+    text-align: center;
   }
 
   &__text {
     max-width: 682px;
-    margin-bottom: 55px;
-    text-align: center;
   }
 
   &__cards-wrapper {
     display: flex;
     justify-content: space-between;
-    width: 100%;
   }
 
   &__card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 370px;
-    padding: 0 30px 50px;
+    flex: 0 1 370px;
     background: $white;
     transition: box-shadow .3s ease-out;
+
+    & + & {
+      margin-left: 30px;
+    }
 
     .card {
 
       &__img {
-        max-height: 270px;
+        width: 100%;
+        // max-width: 370px;
+      }
+
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 30px 50px;
       }
 
       &__title {
-        font-family: 'Gilroy Bold';
         margin-bottom: 20px;
       }
 
       &__text {
-        text-align: center;
-        font-size: 0.95em;
-        color: $gray;
-        line-height: 1.4em;
         margin-bottom: 40px;
+        color: $darkgray;
+        font: .875rem/1.31rem 'Gilroy Regular', sans-serif;
+      }
+    }
+
+    .button {
+
+      .button__icon {
+        margin: 1px 0 0 6px;
+
+        & > path {
+          transition: .2s ease-in-out;
+        }
       }
 
-      &__button {
-        font-size: 0.85em;
+      &:hover .button__icon {
 
-        .button__icon {
-          margin-left: 6px;
-
-          & path {
-            transition: all .2s ease-in-out;
-          }
-        }
-
-        &:hover .button__icon {
-          & path {
-            stroke: $white;
-          }
+        & > path {
+          stroke: $white;
         }
       }
     }
 
     &:hover {
-      box-shadow: 15px 25px 60px -5px rgba(#000000, .1);
+      box-shadow: 15px 25px 60px -5px rgba($trueblack, .1);
     }
   }
 }
-
+// ===== /SERVICES =====
+//TODO: stayed here
 .what-we-do {
 
   &__inner {
@@ -1404,6 +1356,54 @@ h4 {
     font-family: 'Gilroy Medium', sans-serif;
     text-align: center;
     border-top: 1px solid #cccccc;
+  }
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes waving-1 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-1080px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes waving-2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(1080px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
