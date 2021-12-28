@@ -13,14 +13,14 @@
   <header class="header">
     <div class="container">
       <div class="header__inner">
-        <a class="logo" href="#">
-          <img class="logo__img" src="img/logo.png" alt="GrowBe Logo">
-          <span class="logo__text">
+        <a class="main-logo" href="#">
+          <img class="main-logo__img" src="img/logo.png" alt="GrowBe Logo">
+          <span class="main-logo__text">
             Grow<span>Be</span>
           </span>
         </a>
 
-        <ul class="header__menu menu">
+        <ul class="header__menu">
           <li class="menu__item">
             <a class="menu__link" href="#">
               Home
@@ -58,7 +58,7 @@
           </li>
         </ul>
 
-        <button class="button button--header">Get Started</button>
+        <button class="button button--primary">Get Started</button>
       </div>
     </div>
   </header>
@@ -66,13 +66,32 @@
   <main class="main">
 
     <section class="section homepage">
-
       <div class="container">
+        <img class="background__img" src="img/homepage-bg-img.webp" alt="Background image">
+
         <div class="homepage__inner">
+
           <div class="homepage__content">
+            <div class="background__polygon--1">
+              <svg class="polygon__svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.61611 10.557C7.47436 3.62198 14.6027 -0.493596 21.5378 1.36465L37.4045 5.61611C44.3395 7.47436 48.4551 14.6027 46.5969 21.5378L42.3454 37.4045C40.4872 44.3395 33.3588 48.4551 26.4237 46.5969L10.557 42.3454C3.62198 40.4872 -0.493597 33.3588 1.36465 26.4237L5.61611 10.557Z" fill="#F25822" fill-opacity="0.46"/>
+              </svg>
+            </div>
+
+            <div class="background__polygon--2">
+              <svg class="polygon__svg" width="50" height="50" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25V40C50 45.5228 45.5228 50 40 50H25C11.1929 50 0 38.8071 0 25Z" fill="#F25822" fill-opacity="0.46"/>
+              </svg>
+            </div>
+
+            <div class="background__polygon--3">
+              <svg class="polygon__svg" width="53" height="53" viewbox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.48296 7.75898C10.6304 3.02452 15.5822 0.211275 20.7486 0.790596L38.4676 2.7775C43.6339 3.35682 47.8397 7.19693 48.8852 12.2894L52.471 29.7552C53.5165 34.8477 51.164 40.0343 46.6439 42.6023L31.141 51.4098C26.6208 53.9779 20.9611 53.3432 17.122 49.8378L3.95486 37.8154C0.115725 34.31 -1.02964 28.7313 1.11782 23.9968L8.48296 7.75898Z" fill="#149211" fill-opacity="0.3"/>
+              </svg>
+            </div>
 
             <h1 class="section__title homepage__title">
-              SEO & Digital Marketing For Your Website.
+              SEO & Digital <span>Marketing</span> For Your Website.
             </h1>
 
             <span class="section__text homepage__text">
@@ -80,42 +99,19 @@
             </span>
 
             <div class="homepage__controls">
+              <button class="button button--primary">Start Now</button>
 
-              <button class="button">Start Now</button>
-
-              <button class="button button--video">
-                <img class="button__icon" src="img/video-icon.svg" alt="">
+              <button class="button button--secondary">
+                <svg class="button__icon" width="30" height="30" viewbox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.5 13.2679C20.8333 14.0378 20.8333 15.9623 19.5 16.7321L14.25 19.7631C12.9167 20.5329 11.25 19.5707 11.25 18.0311L11.25 11.9689C11.25 10.4293 12.9167 9.46706 14.25 10.2369L19.5 13.2679Z" fill="#F25822"/>
+                  <circle cx="15" cy="15" r="13.5" stroke="#DDDDDD" stroke-width="3"/>
+                </svg>
                 <span class="button__text">Watch Video</span>
               </button>
-
             </div>
-
           </div>
+
         </div>
-      </div>
-
-      <div class="homepage__background">
-
-        <img class="background__img" src="img/homepage-background-image.png" alt="Background picture">
-
-        <div class="background__polygon-1">
-          <svg class="background__polygon-1--svg" width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.61611 10.557C7.47436 3.62198 14.6027 -0.493596 21.5378 1.36465L37.4045 5.61611C44.3395 7.47436 48.4551 14.6027 46.5969 21.5378L42.3454 37.4045C40.4872 44.3395 33.3588 48.4551 26.4237 46.5969L10.557 42.3454C3.62198 40.4872 -0.493597 33.3588 1.36465 26.4237L5.61611 10.557Z" fill="#F25822" fill-opacity="0.46"/>
-          </svg>
-        </div>
-
-        <div class="background__polygon-2">
-          <svg class="background__polygon-2--svg" width="50" height="50" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25V40C50 45.5228 45.5228 50 40 50H25C11.1929 50 0 38.8071 0 25Z" fill="#F25822" fill-opacity="0.46"/>
-          </svg>
-        </div>
-
-        <div class="background__polygon-3">
-          <svg class="background__polygon-3--svg" width="53" height="53" viewbox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8.48296 7.75898C10.6304 3.02452 15.5822 0.211275 20.7486 0.790596L38.4676 2.7775C43.6339 3.35682 47.8397 7.19693 48.8852 12.2894L52.471 29.7552C53.5165 34.8477 51.164 40.0343 46.6439 42.6023L31.141 51.4098C26.6208 53.9779 20.9611 53.3432 17.122 49.8378L3.95486 37.8154C0.115725 34.31 -1.02964 28.7313 1.11782 23.9968L8.48296 7.75898Z" fill="#149211" fill-opacity="0.3"/>
-          </svg>
-        </div>
-
       </div>
 
     </section>
@@ -819,9 +815,6 @@
       </div>
     </section>
 
-
-
-
   </main>
 
   <footer class="footer">
@@ -829,9 +822,9 @@
       <div class="footer__inner">
 
         <div class="footer__info">
-          <a class="logo" href="#">
-            <img class="logo__img" src="img/logo.png" alt="GrowBe Logo">
-            <span class="logo__text">
+          <a class="main-logo" href="#">
+            <img class="main-logo__img" src="img/logo.png" alt="GrowBe Logo">
+            <span class="main-logo__text">
               Grow<span>Be</span>
             </span>
           </a>
