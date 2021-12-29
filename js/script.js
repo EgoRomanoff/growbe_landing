@@ -23,3 +23,18 @@ const blogSlider = new Swiper('.blog__slider', {
     bulletActiveClass: 'dot--active',
   }
 })
+
+const formInputs = document.querySelectorAll('.form__input')
+const submitBtn = document.querySelector('#form__button')
+
+function checkInput () {
+
+  Array.from(formInputs)
+    .map(e => e.value)
+    .includes('') ?
+      submitBtn.setAttribute('disabled', '') :
+      submitBtn.removeAttribute('disabled')
+
+}
+
+formInputs.forEach(input => input.addEventListener('input', checkInput))

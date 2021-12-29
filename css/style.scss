@@ -43,6 +43,7 @@ $trueblack: #000;
 $black: #141414;
 $darkgray: #666;
 $gray: #aaa;
+$smalllightgray: #ccc;
 $lightgray: #eee;
 $lightergray: #fafafa;
 $white: #fff;
@@ -89,7 +90,8 @@ h3 {
 }
 
 h4 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
 }
 // ===== COMMON =====
 .section {
@@ -130,15 +132,6 @@ h4 {
   cursor: pointer;
   transition: .2s ease;
 
-  &:disabled {
-    color: $gray;
-    background: $lightgray;
-
-    &:hover {
-      box-shadow: none;
-    }
-  }
-
   &--primary {
     background: rgba($orange, .25);
     color: $orange;
@@ -147,6 +140,15 @@ h4 {
       background: $orange;
       color: $white;
       box-shadow: 4px 4px 8px rgba($orange, .3);
+    }
+
+    &:disabled {
+      color: $gray;
+      background: $lightgray;
+
+      &:hover {
+        box-shadow: none;
+      }
     }
   }
 
@@ -593,24 +595,27 @@ h4 {
   }
 }
 // ===== /SERVICES =====
-//TODO: stayed here
+// ===== WHAT WE DO =====
 .what-we-do {
 
+  .background__img {
+    position: absolute;
+    top: 0;
+    left: -33%;
+    z-index: -1;
+  }
+
   &__inner {
-    padding: 100px 0;
+    max-width: 630px;
     margin-left: auto;
-    max-width: 570px;
+    padding: 100px 0;
+    padding-left: 60px;
     background: $white;
-    background: linear-gradient(90deg, rgba($white, 0) 0%, $white 15%);
+    background: linear-gradient(90deg, rgba($white, 0) 0%, $white 10%);
   }
 
-  &__title {
-    margin-bottom: 20px;
-  }
-
-  &__text {
+  .section__text {
     margin-bottom: 44px;
-    color: $darkgray;
   }
 
   &__list {
@@ -620,8 +625,9 @@ h4 {
   &__item {
     position: relative;
     padding: 30px 30px 30px 160px;
-    background: $white;
-    transition: box-shadow .3s ease-out;
+    border-radius: 6px;
+    background: transparent;
+    transition: .3s ease-out;
 
     & + & {
       margin-top: 30px;
@@ -629,13 +635,12 @@ h4 {
 
     &::before {
       position: absolute;
-      top: 14px;
+      top: 17px;
       left: 30px;
       content: '';
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background: red;
     }
 
     &:nth-child(1)::before {
@@ -654,7 +659,8 @@ h4 {
     }
 
     &:hover {
-      box-shadow: 15px 25px 60px -5px rgba(#000000, .1);
+      background: $white;
+      box-shadow: 15px 25px 60px -5px rgba($trueblack, .1);
     }
 
     .item {
@@ -664,23 +670,14 @@ h4 {
       }
 
       &__text {
-        font-size: 0.95em;
         color: $darkgray;
+        font: .875rem/1.31rem 'Gilroy Regular', sans-serif;
       }
     }
   }
-
-  &__background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
 }
-
+// ===== /WHAT WE DO =====
+// ===== FACTS =====
 .facts {
   margin-bottom: 100px;
 
@@ -688,8 +685,8 @@ h4 {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border: 2px solid #eeeeee;
-    padding: 40px 70px;
+    border: 2px solid $lightgray;
+    padding: 40px 0;
     list-style: none;
   }
 
@@ -697,17 +694,17 @@ h4 {
     position: relative;
     display: flex;
     flex-direction: column;
+    flex: 1 1 257px;
     align-items: center;
-    max-width: 257px;
-    width: 257px;
+    color: $darkgray;
 
     & + &::before {
       position: absolute;
-      top: calc(50% - 7.5px);
-      left: calc(0% - 7.5px);
+      top: calc(50% - 7px);
+      left: calc(0% - 7px);
       content: '';
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
     }
 
@@ -722,39 +719,41 @@ h4 {
     &:nth-child(4)::before {
       background: $yellow;
     }
-  }
 
-  &__value {
-    font-family: 'Gilroy Bold', sans-serif;
-    font-size: 4.4em;
-    color: $darkgray;
-  }
+    .item {
 
-  &__description {
-    font-family: 'Gilroy Bold', sans-serif;
-    font-size: 1.15em;
-    color: $darkgray;
+      &__value {
+        font: 4.375rem 'Gilroy Bold', sans-serif;
+      }
+
+      &__description {
+        font: 1.125rem/1.7rem 'Gilroy Semibold', sans-serif;
+      }
+    }
   }
 }
-
+// ===== /FACTS =====
+// ===== CHECKING =====
 .checking {
 
-  &__inner {
-    padding: 140px 0;
-    max-width: 570px;
-    background: $white;
-    background: linear-gradient(90deg, $white 85%, rgba($white, 0) 100%);
+  .background__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
   }
 
-  &__text {
-    color: $darkgray;
-    line-height: 1.5em;
-    margin-bottom: 55px;
+  &__inner {
+    padding: 135px 0;
+    max-width: 570px;
+    background: $white;
+    background: linear-gradient(90deg, rgba($white, .9) 75%, rgba($white, .5) 90%, rgba($white, 0) 100%);
   }
 
   &__form {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .form {
 
@@ -763,10 +762,9 @@ h4 {
         height: 50px;
         border: none;
         padding: 15px 20px;
-        background: #eeeeee;
-        font-family: 'Gilroy Medium';
+        background: $lightgray;
         color: $darkgray;
-        font-size: 0.85em;
+        font: 0.75rem/1rem 'Gilroy Medium', sans-serif;
 
         &:focus {
           outline: none;
@@ -776,50 +774,28 @@ h4 {
 
       &__url {
         border-radius: 50px 0 0 50px;
-        border-right: 1px solid #cccccc;
+        border-right: 1px solid $smalllightgray;
       }
 
       &__email {
         margin-right: auto;
-        border-left: 1px solid #cccccc;
+        border-left: 1px solid $smalllightgray;
         border-radius: 0 50px 50px 0;
       }
     }
   }
-
-  &__background {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-
-    .background {
-
-      &__img {
-        position: absolute;
-        top: 0;
-        right: 15%;
-        height: 100%;
-      }
-    }
-  }
 }
-
+// ===== /CHECKING =====
+// ===== PLANS =====
+// ===== /PLANS =====
 .plans {
-  background: #fafafa;
+  padding: 100px 0;
+  background: $lightergray;
 
   &__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0;
-  }
-
-  &__text {
-    margin-bottom: 55px;
   }
 
   &__list {
@@ -835,13 +811,14 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 0 1 370px;
     padding: 65px 80px;
     background: $white;
     font-family: 'Gilroy Medium';
     transition: all .3s ease-out;
 
     &:hover {
-      box-shadow: 15px 25px 70px -5px rgba(#000000, .1);
+      box-shadow: 15px 25px 70px -5px rgba($trueblack, .1);
       padding: 100px 80px;
 
       .item__title {
@@ -852,31 +829,31 @@ h4 {
     .item {
 
       &__title {
-        font-family: 'Gilroy Regular';
         margin-bottom: 20px;
+        font-family: 'Gilroy Regular';
         transition: all .3s ease-out;
       }
 
       &__price {
         display: flex;
         margin-bottom: 20px;
-        font-size: 1.15em;
+        font-size: 1.125rem;
 
         span {
-          display: inline-block;
+          display: inline-flex;
 
           &:nth-child(1) {
-            line-height: 35px;
+            line-height: 2.4rem;
             margin-right: 5px;
           }
 
           &:nth-child(2) {
             line-height: 100%;
-            font-size: 3.85em;
+            font-size: 4.375rem;
           }
 
           &:nth-child(3) {
-            line-height: 35px;
+            line-height: 2.2rem;
             align-self: flex-end;
           }
         }
@@ -886,11 +863,11 @@ h4 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        list-style: none;
         margin-bottom: 30px;
+        list-style: none;
 
         .options__item {
-          line-height: 2.5em;
+          line-height: 2.5rem;
         }
       }
     }
@@ -900,7 +877,7 @@ h4 {
     }
   }
 }
-
+// ===== /PLANS =====
 .team {
   padding: 50px 0 100px;
 
