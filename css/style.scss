@@ -39,18 +39,41 @@
   font-style: normal;
 }
 // ===== VARS =====
+// ----- Colors -----
 $trueblack: #000;
-$black: #141414;
-$darkgray: #666;
-$gray: #aaa;
-$smalllightgray: #ccc;
-$lightgray: #eee;
-$lightergray: #fafafa;
+$black: #131313;
+$gray-700: #666;
+$gray-600: #888;
+$gray-500: #aaa;
+$gray-400: #ccc;
+$gray-300: #ddd;
+$gray-200: #eee;
+$gray-100: #fafafa;
 $white: #fff;
-$orange: #f25822;
-$green: #149211;
-$yellow: #ffcd1d;
 
+$orange: #f25822;
+$orange-light: #fcd5c8;
+
+$green: #149211;
+$green-light: #c4e4c3;
+
+$yellow: #ffcd1d;
+$yellow-light: #fff2c6;
+// ----- /Colors -----
+// ----- Font Sizes -----
+$fs-primary: 16px;
+// ----- /Font Sizes -----
+// ----- Line Heights -----
+$lh-primary: 24px;
+// ----- /Line Heights -----
+// ===== /VARS =====
+// ===== MIXINS =====
+@mixin titleFont($title-fs, $title-lh) {
+  font-size: $title-fs;
+  line-height: $title-lh;
+}
+// ===== /MIXINS =====
+// ===== COMMON =====
 * {
   margin: 0;
   padding: 0;
@@ -58,55 +81,67 @@ $yellow: #ffcd1d;
 }
 
 html {
-  font: 16px/24px 'Gilroy Regular', sans-serif;
+  font: $fs-primary/$lh-primary 'Gilroy Regular', sans-serif;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100vh;
   color: $black;
-  font: 16px 'Gilroy Regular';
 }
-// ===== TITLES =====
+// ----- Titles -----
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Gilroy Bold';
+  color: $black;
+  font-family: 'Gilroy Bold', sans-serif;
 }
 
 h1 {
-  font-size: 3.75rem;
-  line-height: 4.375rem;
+  @include titleFont(3.75rem, 4.375rem);
 }
 
 h2 {
-  font-size: 2.82em;
-  line-height: 3.3rem;
+  @include titleFont(2.82em, 3.3rem);
 }
 
 h3 {
-  font-size: 1.5em;
-  line-height: 1.75rem;
+  @include titleFont(1.5rem, 1.75rem);
 }
 
 h4 {
-  font-size: 1.25rem;
-  line-height: 1.875rem;
+  @include titleFont(1.25rem, 1.875rem);
 }
-// ===== COMMON =====
+// ----- /Titles -----
+%flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%background-img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+%card--3-in-line {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 370px;
+  background: $white;
+  transition: .3s ease-out;
+}
+
 .section {
   position: relative;
-  width: 100%;
+  padding: 100px 0;
   overflow: hidden;
 
   &__title {
-    color: $black;
-    font-family: 'Gilroy Bold', sans-serif;
     margin-bottom: 20px;
   }
 
   &__text {
-    color: $darkgray;
+    color: $gray-700;
     font: 1rem/1.5rem 'Gilroy Regular', sans-serif;
     margin-bottom: 55px;
   }
@@ -116,24 +151,24 @@ h4 {
   position: relative;
   margin: 0 auto;
   max-width: 1220px;
+  min-width: 320px;
   padding: 0 25px;
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend %flex-centered;
+
   flex-shrink: 0;
   width: 140px;
   height: 50px;
   border: none;
   border-radius: 25px;
-  font: 0.875rem 'Gilroy Bold';
+  font: .875rem/1.3125rem 'Gilroy Bold', sans-serif;
   cursor: pointer;
   transition: .2s ease;
 
   &--primary {
-    background: rgba($orange, .25);
+    background: $orange-light;
     color: $orange;
 
     &:hover {
@@ -143,8 +178,8 @@ h4 {
     }
 
     &:disabled {
-      color: $gray;
-      background: $lightgray;
+      color: $gray-500;
+      background: $gray-200;
 
       &:hover {
         box-shadow: none;
@@ -154,7 +189,7 @@ h4 {
 
   &--secondary {
     background: transparent;
-    color: $gray;
+    color: $gray-500;
 
     &:hover {
       color: $black;
@@ -166,18 +201,55 @@ h4 {
   display: flex;
   align-items: center;
   margin-right: 30px;
-  font: 1.5em 'Gilroy Bold';
+  font: 1.5rem 'Gilroy Bold', sans-serif;
   text-decoration: none;
 
   &__img {
-    margin-right: 14px;
+    margin-right: .875rem;
   }
 
   &__text {
-    color: #000000;
+    color: $trueblack;
 
-    & span {
-      color: #f25822;
+    & > span {
+      color: $orange;
+    }
+  }
+}
+
+.social {
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 130px;
+    list-style: none;
+  }
+
+  &__item {
+    @extend %flex-centered;
+
+    flex: 0 0 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .15s ease;
+
+    &:hover {
+      background: $orange;
+
+      .social__link > svg > path {
+        fill: $white;
+      }
+    }
+  }
+
+  &__link {
+    @extend %flex-centered;
+
+    svg > path {
+      transition: .15s ease;
     }
   }
 }
@@ -194,22 +266,20 @@ h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
     padding: 40px 0;
   }
 
   &__menu {
     display: flex;
-    align-items: center;
     margin-left: auto;
     list-style: none;
   }
 
   .button {
-    margin-left: 30px;
     width: 120px;
     height: 40px;
-    font-size: 0.75rem;
+    margin-left: 30px;
+    font: .75rem/normal 'Gilroy Semibold', sans-serif;
   }
 }
 
@@ -224,10 +294,10 @@ h4 {
 
   &__link {
     color: $black;
-    font: 0.875rem 'Gilroy Bold';
+    font: .875rem/1.3125rem 'Gilroy Semibold', sans-serif;
     text-decoration: none;
     white-space: nowrap;
-    transition: color .2s;
+    transition: .2s;
 
     &:hover {
       color: $orange;
@@ -238,37 +308,30 @@ h4 {
 
 .main {
   position: relative;
-  width: 100%;
   padding-top: 120px;
 }
 
 // ===== HOMEPAGE =====
 .homepage {
+  padding: 0;
 
   &__inner {
     position: relative;
     display: flex;
-    align-items: center;
-  }
-
-  &__content {
-    position: relative;
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 40px;
+    width: 100%;
     max-width: 580px;
     height: 580px;
+    padding-right: 40px;
     background: $white;
     background: linear-gradient(90deg, rgba($white, .9) 75%, rgba($white, .5) 90%, rgba($white, 0) 100%);
-
-    z-index: 0;
   }
 
-  &__title {
+  .section__title {
     margin-bottom: 30px;
 
-    span {
+    & > span {
       position: relative;
       z-index: 1;
 
@@ -287,9 +350,9 @@ h4 {
     }
   }
 
-  &__text {
-    font: 1.25rem/1.5rem 'Gilroy Medium', sans-serif;
+  .section__text {
     margin-bottom: 40px;
+    font: 1.25rem/1.5rem 'Gilroy Medium', sans-serif;
   }
 
   &__controls {
@@ -321,8 +384,8 @@ h4 {
   .background {
 
     &__img {
-      position: absolute;
-      top: 0;
+      @extend %background-img;
+
       left: 53%;
     }
 
@@ -378,7 +441,6 @@ h4 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 100px 0;
   }
 
   &__link {
@@ -391,19 +453,21 @@ h4 {
   }
 
   &__img {
-    transition: filter .2s;
+    transition: .2s;
   }
 }
 // ===== /BRANDS =====
 // ===== ABOUT US =====
 .about-us {
-  background: $lightergray;
+  padding: 0;
+  background: $gray-100;
   z-index: 0;
 
   &__inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     max-width: 515px;
     height: 540px;
   }
@@ -411,17 +475,15 @@ h4 {
   .background {
 
     &__img {
-      position: absolute;
-      top: 0;
+      @extend %background-img;
+
       left: 50%;
-      z-index: -1;
     }
 
     &__wave {
+
       &-1, &-2 {
-        position: absolute;
-        top: 0;
-        z-index: -1;
+        @extend %background-img;
       }
 
       &-1 {
@@ -439,7 +501,6 @@ h4 {
 // ===== /ABOUT US =====
 // ===== FEATURES =====
 .features {
-  padding: 100px 0;
 
   &__inner {
     display: flex;
@@ -447,11 +508,9 @@ h4 {
   }
 
   &__card {
-    position: relative;
-    flex: 0 1 370px;
+    @extend %card--3-in-line;
+
     padding: 125px 30px 30px;
-    background: $white;
-    transition: box-shadow .3s ease-out;
 
     & + & {
       margin-left: 30px;
@@ -468,22 +527,22 @@ h4 {
     }
 
     &:nth-child(1)::before {
-      background: rgba($orange, .25)
+      background: $orange-light
                   url(../img/card-icon-1.svg) center no-repeat;
     }
 
     &:nth-child(2)::before {
-      background: rgba($green, .25)
+      background: $green-light
                   url(../img/card-icon-2.svg) center no-repeat;
     }
 
     &:nth-child(3)::before {
-      background: rgba($yellow, .25)
+      background: $yellow-light
                   url(../img/card-icon-3.svg) center no-repeat;
     }
 
     &:hover {
-      box-shadow: 15px 25px 56px 6px rgba($trueblack, .06);
+      box-shadow: 15px 25px 56px 6px rgba($trueblack, .1);
     }
   }
 
@@ -495,11 +554,12 @@ h4 {
 
     &__text {
       margin-bottom: 25px;
-      color: $darkgray;
-      font: .875rem/1.31rem 'Gilroy Regular', sans-serif;
+      color: $gray-700;
+      font: .875rem/1.3125rem 'Gilroy Regular', sans-serif;
     }
 
     &__link {
+      margin-top: auto;
       color: $black;
       font: .75rem/1rem 'Gilroy Bold', sans-serif;
       text-decoration: none;
@@ -514,17 +574,17 @@ h4 {
 // ===== /FEATURES =====
 // ===== SERVICES =====
 .services {
-  background: $lightergray;
-  padding: 100px 0;
+  background: $gray-100;
 
   &__inner {
-    display: flex;
+    @extend %flex-centered;
+
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 
-  &__text {
+  .section__text {
+    width: 100%;
     max-width: 682px;
   }
 
@@ -534,13 +594,9 @@ h4 {
   }
 
   &__card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    @extend %card--3-in-line;
+
     align-items: center;
-    flex: 0 1 370px;
-    background: $white;
-    transition: box-shadow .3s ease-out;
 
     & + & {
       margin-left: 30px;
@@ -550,13 +606,13 @@ h4 {
 
       &__img {
         width: 100%;
-        // max-width: 370px;
+        max-width: 370px;
       }
 
       &__inner {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        flex-grow: 1;
         padding: 0 30px 50px;
       }
 
@@ -565,13 +621,15 @@ h4 {
       }
 
       &__text {
+        flex: 1;
         margin-bottom: 40px;
-        color: $darkgray;
-        font: .875rem/1.31rem 'Gilroy Regular', sans-serif;
+        color: $gray-700;
+        font: .875rem/1.3125rem 'Gilroy Regular', sans-serif;
       }
     }
 
     .button {
+      margin: 0 auto;
 
       .button__icon {
         margin: 1px 0 0 6px;
@@ -599,16 +657,15 @@ h4 {
 .what-we-do {
 
   .background__img {
-    position: absolute;
-    top: 0;
+    @extend %background-img;
+
     left: -33%;
-    z-index: -1;
   }
 
   &__inner {
+    width: 100%;
     max-width: 630px;
     margin-left: auto;
-    padding: 100px 0;
     padding-left: 60px;
     background: $white;
     background: linear-gradient(90deg, rgba($white, 0) 0%, $white 10%);
@@ -644,17 +701,17 @@ h4 {
     }
 
     &:nth-child(1)::before {
-      background: rgba($orange, .25)
+      background: $orange-light
                   url(../img/item-icon-1.svg) center no-repeat;
     }
 
     &:nth-child(2)::before {
-      background: rgba($green, .25)
+      background: $green-light
                   url(../img/item-icon-2.svg) center no-repeat;
     }
 
     &:nth-child(3)::before {
-      background: rgba($yellow, .25)
+      background: $yellow-light
                   url(../img/item-icon-3.svg) center no-repeat;
     }
 
@@ -670,8 +727,8 @@ h4 {
       }
 
       &__text {
-        color: $darkgray;
-        font: .875rem/1.31rem 'Gilroy Regular', sans-serif;
+        color: $gray-700;
+        font: .875rem/1.3125rem 'Gilroy Regular', sans-serif;
       }
     }
   }
@@ -679,13 +736,11 @@ h4 {
 // ===== /WHAT WE DO =====
 // ===== FACTS =====
 .facts {
-  margin-bottom: 100px;
 
   &__list {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    border: 2px solid $lightgray;
+    border: 2px solid $gray-200;
     padding: 40px 0;
     list-style: none;
   }
@@ -694,9 +749,9 @@ h4 {
     position: relative;
     display: flex;
     flex-direction: column;
-    flex: 1 1 257px;
     align-items: center;
-    color: $darkgray;
+    flex: 0 1 100%;
+    color: $gray-700;
 
     & + &::before {
       position: absolute;
@@ -733,6 +788,7 @@ h4 {
   }
 }
 // ===== /FACTS =====
+// TODO: STAYED HERE!
 // ===== CHECKING =====
 .checking {
 
@@ -745,7 +801,8 @@ h4 {
 
   &__inner {
     padding: 135px 0;
-    max-width: 570px;
+    width: 570px;
+    min-width: 0;
     background: $white;
     background: linear-gradient(90deg, rgba($white, .9) 75%, rgba($white, .5) 90%, rgba($white, 0) 100%);
   }
@@ -762,8 +819,8 @@ h4 {
         height: 50px;
         border: none;
         padding: 15px 20px;
-        background: $lightgray;
-        color: $darkgray;
+        background: $gray-200;
+        color: $gray-700;
         font: 0.75rem/1rem 'Gilroy Medium', sans-serif;
 
         &:focus {
@@ -774,12 +831,12 @@ h4 {
 
       &__url {
         border-radius: 50px 0 0 50px;
-        border-right: 1px solid $smalllightgray;
+        border-right: 1px solid $gray-400;
       }
 
       &__email {
         margin-right: auto;
-        border-left: 1px solid $smalllightgray;
+        border-left: 1px solid $gray-400;
         border-radius: 0 50px 50px 0;
       }
     }
@@ -787,10 +844,9 @@ h4 {
 }
 // ===== /CHECKING =====
 // ===== PLANS =====
-// ===== /PLANS =====
 .plans {
   padding: 100px 0;
-  background: $lightergray;
+  background: $gray-100;
 
   &__inner {
     display: flex;
@@ -878,8 +934,9 @@ h4 {
   }
 }
 // ===== /PLANS =====
+// ===== TEAM =====
 .team {
-  padding: 50px 0 100px;
+  padding: 100px 0 100px;
 
   &__inner {
     display: flex;
@@ -887,14 +944,16 @@ h4 {
     align-items: center;
   }
 
-  &__text {
-    margin-bottom: 50px;
+  .section__text {
+    width: 460px;
+    min-width: 0;
+    text-align: center;
   }
 
   &__list {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
     list-style: none;
   }
 
@@ -903,77 +962,83 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: 1 1 270px;
+    margin: 0 0 30px 0;
     padding: 50px 70px;
-    border: 1px solid #eeeeee;
+    outline: 1px solid $gray-200;
     border-radius: 4px;
     background: $white;
     transition: .3s ease-out;
 
+    & + & {
+      margin-left: 30px;
+    }
+
     &:hover {
-      box-shadow: 15px 20px 50px 0px rgba(#000000, .1);
+      box-shadow: 15px 20px 50px 0px rgba($trueblack, .1);
       border-color: $white;
     }
 
     .member {
 
       &__photo {
-        max-width: 130px;
-        width: 100%;
+        flex: 0 1 130px;
         border-radius: 50%;
         overflow: hidden;
         margin-bottom: 14px;
       }
 
       &__name {
-        font-family: 'Gilroy Bold', sans-serif;
-        font-size: 1.25em;
-        line-height: 1.5em;
+        font: 1.25rem/1.875rem 'Gilroy Bold', sans-serif;
       }
 
       &__role {
-        font-family: 'Gilroy Medium';
-        font-size: 0.85em;
-        color: #888888;
+        color: $gray-600;
+        font: 0.875rem/1.375rem 'Gilroy Medium', sans-serif;
         margin-bottom: 18px;
       }
     }
   }
 }
-
+// ===== /TEAM =====
+// ===== TESTIMONIALS ======
 .testimonials {
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 100px 0;
 
-  &__text {
-    max-width: 450px;
-    margin-bottom: 50px;
-    color: $darkgray;
+  .section__text {
+    width: 460px;
+    min-width: 0;
     text-align: center;
-    line-height: 1.5em;
+  }
+
+  .swiper {
+    margin: 0;
   }
 
   &__slider {
 
-    .swiper-wrapper {
+    .slider__wrapper {
       margin-bottom: 30px;
       list-style: none;
     }
 
-    .swiper-slide {
+    .slider__slide {
       padding: 0 15px;
-      max-width: 570px;
-      opacity: 0.5;
+      width: 600px !important;
+      min-width: 0px;
+      opacity: .5;
+    }
 
-      &-active, &-next {
-        opacity: 1;
-      }
+    .swiper-slide-active, .swiper-slide-next {
+      opacity: 1;
+    }
 
-      &-active .slide__inner {
-        box-shadow: 15px 25px 60px -10px rgba(#000000, .1);
-        border-color: $white;
-      }
+    .swiper-slide-active .slide__inner {
+      box-shadow: 15px 25px 60px -10px rgba($trueblack, .1);
+      border-color: $white;
     }
 
     .slide__inner {
@@ -981,8 +1046,9 @@ h4 {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
-      border: 2px solid #eeeeee;
+      // width: 570px;
+      min-width: 100%;
+      border: 2px solid $gray-200;
       padding: 25px 30px;
       transition: .3s ease-out;
 
@@ -996,22 +1062,23 @@ h4 {
 
         &__text {
           margin-bottom: 30px;
-          color: #888888;
-          line-height: 1.5em;
+          color: $gray-700;
+          line-height: 1.5rem;
           text-align: center;
         }
 
         &__photo {
-          width: 50px;
+          width: 100%;
+          max-width: 50px;
           height: 50px;
+          margin-bottom: 10px;
           border-radius: 50%;
           overflow: hidden;
-          margin-bottom: 10px;
         }
 
         &__person-name, &__person-profi {
-          font-size: 0.85em;
-          line-height: 1.4em;
+          font-size: 0.875rem;
+          line-height: 1.375rem;
         }
 
         &__person-name {
@@ -1020,17 +1087,15 @@ h4 {
 
         &__person-profi {
           font-family: 'Gilroy Medium';
-          color: #888888;
+          color: $gray-600;
         }
       }
     }
 
     .slider__dots {
+      @extend %flex-centered;
       position: relative;
       bottom: 0 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 12px;
 
       .dot {
@@ -1039,7 +1104,7 @@ h4 {
         height: 8px;
         margin: 0 6px;
         border-radius: 50%;
-        background: #dddddd;
+        background: $gray-300;
         cursor: pointer;
         transition: all .2s;
 
@@ -1051,7 +1116,7 @@ h4 {
     }
   }
 }
-
+// ===== /TESTIMONIALS ======
 .blog {
   display: flex;
   align-items: center;
@@ -1059,9 +1124,9 @@ h4 {
   padding: 100px 0;
 
   &__text {
-    max-width: 570px;
+    width: 570px;
     margin-bottom: 50px;
-    color: $darkgray;
+    color: $gray-700;
     text-align: center;
     line-height: 1.5em;
   }
@@ -1180,7 +1245,7 @@ h4 {
 
         &__text {
           margin-bottom: 25px;
-          color: $darkgray;
+          color: $gray-700;
           font-family: 'Gilroy Medium', sans-serif;
           font-size: 0.95em;
           line-height: 1.45em;
@@ -1201,11 +1266,9 @@ h4 {
     }
 
     .slider__dots {
+      @extend %flex-centered;
       position: relative;
       bottom: 0 !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 12px;
 
       .dot {
@@ -1265,7 +1328,7 @@ h4 {
 
     .info__text {
       margin-bottom: 25px;
-      color: $darkgray;
+      color: $gray-700;
       font-family: 'Gilroy Medium';
       line-height: 1.6em;
     }
@@ -1291,7 +1354,7 @@ h4 {
       &__item {
         margin-bottom: 20px;
         font-family: 'Gilroy Medium';
-        color: $darkgray;
+        color: $gray-700;
 
         &:nth-last-child(1) {
           margin-bottom: 0;
@@ -1303,7 +1366,7 @@ h4 {
       }
 
       &__link {
-        color: $darkgray;
+        color: $gray-700;
         text-decoration: none;
         transition: color .2s;
 
@@ -1381,62 +1444,5 @@ h4 {
   }
   100% {
     transform: translateX(0);
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.social {
-
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 130px;
-    list-style: none;
-  }
-
-  &__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: .15s ease-in-out;
-
-    &:hover {
-      background: $orange;
-
-      .social__link > svg > path {
-        fill: $white;
-      }
-    }
-  }
-
-  &__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg > path {
-      transition: .15s ease-in-out;
-    }
   }
 }
