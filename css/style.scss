@@ -116,6 +116,12 @@ h4 {
   align-items: center;
 }
 
+%inner--centeredX {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 %background-img {
   position: absolute;
   top: 0;
@@ -788,21 +794,23 @@ h4 {
   }
 }
 // ===== /FACTS =====
-// TODO: STAYED HERE!
 // ===== CHECKING =====
 .checking {
 
   .background__img {
-    position: absolute;
-    top: 0;
+    @extend %background-img;
+
     right: 0;
-    z-index: -1;
   }
 
   &__inner {
-    padding: 135px 0;
-    width: 570px;
-    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 610px;
+    height: 500px;
+    padding-left: 40px;
     background: $white;
     background: linear-gradient(90deg, rgba($white, .9) 75%, rgba($white, .5) 90%, rgba($white, 0) 100%);
   }
@@ -815,10 +823,11 @@ h4 {
     .form {
 
       &__url, &__email {
-        width: 200px;
+        flex: 0 1 200px;
         height: 50px;
         border: none;
         padding: 15px 20px;
+        margin-bottom: 15px;
         background: $gray-200;
         color: $gray-700;
         font: 0.75rem/1rem 'Gilroy Medium', sans-serif;
@@ -845,13 +854,10 @@ h4 {
 // ===== /CHECKING =====
 // ===== PLANS =====
 .plans {
-  padding: 100px 0;
   background: $gray-100;
 
   &__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @extend %inner--centeredX;
   }
 
   &__list {
@@ -864,18 +870,15 @@ h4 {
   }
 
   &__item {
-    display: flex;
-    flex-direction: column;
+    @extend %card--3-in-line;
+
     align-items: center;
-    flex: 0 1 370px;
     padding: 65px 80px;
-    background: $white;
-    font-family: 'Gilroy Medium';
-    transition: all .3s ease-out;
+    font-family: 'Gilroy Medium', sans-serif;
 
     &:hover {
-      box-shadow: 15px 25px 70px -5px rgba($trueblack, .1);
       padding: 100px 80px;
+      box-shadow: 15px 25px 70px -5px rgba($trueblack, .1);
 
       .item__title {
         color: $orange;
@@ -886,7 +889,7 @@ h4 {
 
       &__title {
         margin-bottom: 20px;
-        font-family: 'Gilroy Regular';
+        font-family: 'Gilroy Regular', sans-serif;
         transition: all .3s ease-out;
       }
 
@@ -936,24 +939,22 @@ h4 {
 // ===== /PLANS =====
 // ===== TEAM =====
 .team {
-  padding: 100px 0 100px;
 
   &__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @extend %inner--centeredX;
   }
 
   .section__text {
-    width: 460px;
-    min-width: 0;
+    width: 100%;
+    max-width: 460px;
     text-align: center;
   }
-
+// TODO: ВЫРОВНЯТЬ ПЕРЕНОСИМЫЕ ЭЛЕМЕНТЫ В ГРИДЕ
   &__list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(218px, 1fr));
+    grid-gap: 30px;
+    width: 100%;
     list-style: none;
   }
 
@@ -962,17 +963,12 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1 1 270px;
-    margin: 0 0 30px 0;
-    padding: 50px 70px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 0;
     outline: 1px solid $gray-200;
     border-radius: 4px;
     background: $white;
-    transition: .3s ease-out;
-
-    & + & {
-      margin-left: 30px;
-    }
 
     &:hover {
       box-shadow: 15px 20px 50px 0px rgba($trueblack, .1);
@@ -983,9 +979,9 @@ h4 {
 
       &__photo {
         flex: 0 1 130px;
+        margin-bottom: 14px;
         border-radius: 50%;
         overflow: hidden;
-        margin-bottom: 14px;
       }
 
       &__name {
@@ -993,9 +989,9 @@ h4 {
       }
 
       &__role {
+        margin-bottom: 18px;
         color: $gray-600;
         font: 0.875rem/1.375rem 'Gilroy Medium', sans-serif;
-        margin-bottom: 18px;
       }
     }
   }
