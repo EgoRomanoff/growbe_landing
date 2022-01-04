@@ -83,7 +83,7 @@ h4 {
           align-items: center;
 }
 
-.plans__inner, .team__inner {
+.plans__inner, .team__inner, .testimonials, .blog {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -185,6 +185,19 @@ h4 {
 
 .button--secondary:hover {
   color: #131313;
+}
+
+.button--read-more {
+  margin-top: auto;
+  color: #131313;
+  font: .75rem/1rem 'Gilroy Bold', sans-serif;
+  text-decoration: none;
+  -webkit-transition: .15s ease-in-out;
+  transition: .15s ease-in-out;
+}
+
+.button--read-more:hover {
+  color: #f25822;
 }
 
 .main-logo {
@@ -547,19 +560,6 @@ h4 {
   margin-bottom: 25px;
   color: #666;
   font: .875rem/1.3125rem 'Gilroy Regular', sans-serif;
-}
-
-.features .card__link {
-  margin-top: auto;
-  color: #131313;
-  font: .75rem/1rem 'Gilroy Bold', sans-serif;
-  text-decoration: none;
-  -webkit-transition: .15s ease-in-out;
-  transition: .15s ease-in-out;
-}
-
-.features .card__link:hover {
-  color: #f25822;
 }
 
 .services {
@@ -979,12 +979,14 @@ h4 {
   outline: 1px solid #eee;
   border-radius: 4px;
   background: #fff;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
 }
 
 .team__member:hover {
   -webkit-box-shadow: 15px 20px 50px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 15px 20px 50px 0px rgba(0, 0, 0, 0.1);
-  border-color: #fff;
+  outline-color: #fff;
 }
 
 .team__member .member__photo {
@@ -1006,28 +1008,10 @@ h4 {
   font: 0.875rem/1.375rem 'Gilroy Medium', sans-serif;
 }
 
-.testimonials {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 100px 0;
-}
-
 .testimonials .section__text {
-  width: 460px;
-  min-width: 0;
+  width: 100%;
+  max-width: 570px;
   text-align: center;
-}
-
-.testimonials .swiper {
-  margin: 0;
 }
 
 .testimonials__slider .slider__wrapper {
@@ -1037,8 +1021,8 @@ h4 {
 
 .testimonials__slider .slider__slide {
   padding: 0 15px;
-  width: 600px !important;
-  min-width: 0px;
+  width: 100%;
+  max-width: 600px;
   opacity: .5;
 }
 
@@ -1064,9 +1048,12 @@ h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 100%;
+  width: 100%;
   border: 2px solid #eee;
   padding: 25px 30px;
+  color: #888;
+  font: 1rem/1.5rem 'Gilroy Regular', sans-serif;
+  text-align: center;
   -webkit-transition: .3s ease-out;
   transition: .3s ease-out;
 }
@@ -1079,9 +1066,6 @@ h4 {
 
 .testimonials__slider .slide__inner .item__text {
   margin-bottom: 30px;
-  color: #666;
-  line-height: 1.5rem;
-  text-align: center;
 }
 
 .testimonials__slider .slide__inner .item__photo {
@@ -1094,17 +1078,13 @@ h4 {
 }
 
 .testimonials__slider .slide__inner .item__person-name, .testimonials__slider .slide__inner .item__person-profi {
-  font-size: 0.875rem;
+  font-size: .875rem;
   line-height: 1.375rem;
 }
 
 .testimonials__slider .slide__inner .item__person-name {
-  font-family: 'Gilroy Semibold';
-}
-
-.testimonials__slider .slide__inner .item__person-profi {
-  font-family: 'Gilroy Medium';
-  color: #888;
+  color: #131313;
+  font-family: 'Gilroy Semibold', sans-serif;
 }
 
 .testimonials__slider .slider__dots {
@@ -1131,40 +1111,25 @@ h4 {
   background: #f25822;
 }
 
-.blog {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 100px 0;
-}
-
-.blog__text {
-  width: 570px;
-  margin-bottom: 50px;
-  color: #666;
+.blog .section__text {
+  width: 100%;
+  max-width: 570px;
   text-align: center;
-  line-height: 1.5em;
 }
 
-.blog__slider .swiper-wrapper {
+.blog__slider .slider__wrapper {
   margin-bottom: 30px;
   list-style: none;
 }
 
-.blog__slider .swiper-slide {
+.blog__slider .slider__slide {
   padding: 0 15px;
+  width: 100%;
   max-width: 800px;
-  opacity: 0.5;
+  opacity: .5;
 }
 
-.blog__slider .swiper-slide .item__content .item__link {
+.blog__slider .slider__slide .item__content .button--read-more {
   display: none;
 }
 
@@ -1178,7 +1143,7 @@ h4 {
   border-color: #fff;
 }
 
-.blog__slider .swiper-slide-active .item__content .item__link {
+.blog__slider .swiper-slide-active .item__content .button--read-more {
   display: inline-block;
 }
 
@@ -1195,29 +1160,26 @@ h4 {
           align-items: center;
   width: 100%;
   height: 330px;
-  border: 2px solid #eeeeee;
+  border: 2px solid #eee;
+  font: 1rem/1.5rem 'Gilroy Medium', sans-serif;
   -webkit-transition: .3s ease-out;
   transition: .3s ease-out;
 }
 
 .blog__slider .slide__inner .item__img-wrapper {
   position: relative;
-  -ms-flex-preferred-size: 370px;
-      flex-basis: 370px;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+      -ms-flex: 1 0 370px;
+          flex: 1 0 370px;
   height: 100%;
   overflow: hidden;
 }
 
 .blog__slider .slide__inner .item__img-wrapper .item__img {
-  -o-object-fit: cover;
-     object-fit: cover;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .blog__slider .slide__inner .item__content {
@@ -1237,7 +1199,7 @@ h4 {
 .blog__slider .slide__inner .item__title {
   margin-bottom: 20px;
   font-family: 'Gilroy Bold', sans-serif;
-  line-height: 1.5em;
+  line-height: 2.25rem;
 }
 
 .blog__slider .slide__inner .item__info {
@@ -1252,18 +1214,16 @@ h4 {
 }
 
 .blog__slider .slide__inner .item__info .info__author, .blog__slider .slide__inner .item__info .info__likes-counter, .blog__slider .slide__inner .item__info .info__comments-counter {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
   padding-left: 20px;
-  color: #888888;
-  font-family: 'Gilroy Medium', sans-serif;
-  font-size: 0.75em;
-  line-height: 1.35em;
+  color: #888;
+  font: 0.75rem/1.125rem 'Gilroy Medium', sans-serif;
 }
 
 .blog__slider .slide__inner .item__info .info__author::before, .blog__slider .slide__inner .item__info .info__likes-counter::before, .blog__slider .slide__inner .item__info .info__comments-counter::before {
@@ -1290,22 +1250,6 @@ h4 {
 .blog__slider .slide__inner .item__text {
   margin-bottom: 25px;
   color: #666;
-  font-family: 'Gilroy Medium', sans-serif;
-  font-size: 0.95em;
-  line-height: 1.45em;
-}
-
-.blog__slider .slide__inner .item__link {
-  font-family: 'Gilroy Bold';
-  font-size: 0.75em;
-  color: #131313;
-  text-decoration: none;
-  -webkit-transition: .15s ease-in-out;
-  transition: .15s ease-in-out;
-}
-
-.blog__slider .slide__inner .item__link:hover {
-  color: #f25822;
 }
 
 .blog__slider .slider__dots {
@@ -1320,7 +1264,7 @@ h4 {
   height: 8px;
   margin: 0 6px;
   border-radius: 50%;
-  background: #dddddd;
+  background: #ddd;
   cursor: pointer;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -1334,7 +1278,7 @@ h4 {
 
 .footer {
   width: 100%;
-  background: #f3f3f3;
+  background: #eee;
 }
 
 .footer__inner {

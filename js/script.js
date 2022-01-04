@@ -1,10 +1,7 @@
 const testimonialsSlider = new Swiper('.testimonials__slider', {
-  slidesPerView: 4,
+  slidesPerView: 'auto',
   loop: false,
   centeredSlides: true,
-  // spaceBetween: 30,
-  // slideActiveClass: 'slider__slide--active',
-  // slideNextClass: 'slider__slide--next',
 
   pagination: {
     el: '.slider__dots',
@@ -26,10 +23,6 @@ const blogSlider = new Swiper('.blog__slider', {
     bulletActiveClass: 'dot--active',
   }
 })
-
-// window.addEventListener('resize', function() {
-
-// })
 
 const formInputs = document.querySelectorAll('.form__input')
 const submitBtn = document.querySelector('#form__button')

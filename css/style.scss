@@ -201,6 +201,18 @@ h4 {
       color: $black;
     }
   }
+
+  &--read-more {
+    margin-top: auto;
+    color: $black;
+    font: .75rem/1rem 'Gilroy Bold', sans-serif;
+    text-decoration: none;
+    transition: .15s ease-in-out;
+
+    &:hover {
+      color: $orange;
+    }
+  }
 }
 
 .main-logo {
@@ -562,18 +574,6 @@ h4 {
       margin-bottom: 25px;
       color: $gray-700;
       font: .875rem/1.3125rem 'Gilroy Regular', sans-serif;
-    }
-
-    &__link {
-      margin-top: auto;
-      color: $black;
-      font: .75rem/1rem 'Gilroy Bold', sans-serif;
-      text-decoration: none;
-      transition: .15s ease-in-out;
-
-      &:hover {
-        color: $orange;
-      }
     }
   }
 }
@@ -969,10 +969,11 @@ h4 {
     outline: 1px solid $gray-200;
     border-radius: 4px;
     background: $white;
+    transition: .3s ease-out;
 
     &:hover {
       box-shadow: 15px 20px 50px 0px rgba($trueblack, .1);
-      border-color: $white;
+      outline-color: $white;
     }
 
     .member {
@@ -999,19 +1000,16 @@ h4 {
 // ===== /TEAM =====
 // ===== TESTIMONIALS ======
 .testimonials {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 100px 0;
+  @extend %inner--centeredX;
 
   .section__text {
-    width: 460px;
-    min-width: 0;
+    width: 100%;
+    max-width: 570px;
     text-align: center;
   }
 
   .swiper {
-    margin: 0;
+    // margin: 0;
   }
 
   &__slider {
@@ -1023,8 +1021,8 @@ h4 {
 
     .slider__slide {
       padding: 0 15px;
-      width: 600px !important;
-      min-width: 0px;
+      width: 100%;
+      max-width: 600px;
       opacity: .5;
     }
 
@@ -1042,10 +1040,12 @@ h4 {
       display: flex;
       flex-direction: column;
       align-items: center;
-      // width: 570px;
-      min-width: 100%;
+      width: 100%;
       border: 2px solid $gray-200;
       padding: 25px 30px;
+      color: $gray-600;
+      font: 1rem/1.5rem 'Gilroy Regular', sans-serif;
+      text-align: center;
       transition: .3s ease-out;
 
       &::after {
@@ -1058,9 +1058,6 @@ h4 {
 
         &__text {
           margin-bottom: 30px;
-          color: $gray-700;
-          line-height: 1.5rem;
-          text-align: center;
         }
 
         &__photo {
@@ -1073,23 +1070,20 @@ h4 {
         }
 
         &__person-name, &__person-profi {
-          font-size: 0.875rem;
+          font-size: .875rem;
           line-height: 1.375rem;
         }
 
         &__person-name {
-          font-family: 'Gilroy Semibold';
-        }
-
-        &__person-profi {
-          font-family: 'Gilroy Medium';
-          color: $gray-600;
+          color: $black;
+          font-family: 'Gilroy Semibold', sans-serif;
         }
       }
     }
 
     .slider__dots {
       @extend %flex-centered;
+
       position: relative;
       bottom: 0 !important;
       height: 12px;
@@ -1114,46 +1108,42 @@ h4 {
 }
 // ===== /TESTIMONIALS ======
 .blog {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 100px 0;
+  @extend %inner--centeredX;
 
-  &__text {
-    width: 570px;
-    margin-bottom: 50px;
-    color: $gray-700;
+  .section__text {
+    width: 100%;
+    max-width: 570px;
     text-align: center;
-    line-height: 1.5em;
   }
 
   &__slider {
 
-    .swiper-wrapper {
+    .slider__wrapper {
       margin-bottom: 30px;
       list-style: none;
     }
 
-    .swiper-slide {
+    .slider__slide {
       padding: 0 15px;
+      width: 100%;
       max-width: 800px;
-      opacity: 0.5;
+      opacity: .5;
 
-      .item__content .item__link {
+      .item__content .button--read-more {
         display: none;
       }
+    }
 
-      &-active {
-        opacity: 1;
+    .swiper-slide-active {
+      opacity: 1;
 
-        .slide__inner {
-          box-shadow: 15px 25px 60px -10px rgba(#000000, .1);
-          border-color: $white;
-        }
+      .slide__inner {
+        box-shadow: 15px 25px 60px -10px rgba($trueblack, .1);
+        border-color: $white;
+      }
 
-        .item__content .item__link {
-          display: inline-block;
-        }
+      .item__content .button--read-more {
+        display: inline-block;
       }
     }
 
@@ -1164,23 +1154,22 @@ h4 {
       align-items: center;
       width: 100%;
       height: 330px;
-      border: 2px solid #eeeeee;
+      border: 2px solid $gray-200;
+      font: 1rem/1.5rem 'Gilroy Medium', sans-serif;
       transition: .3s ease-out;
 
       .item {
 
         &__img-wrapper {
           position: relative;
-          flex-basis: 370px;
-          flex-grow: 1;
-          flex-shrink: 0;
+          flex: 1 0 370px;
           height: 100%;
           overflow: hidden;
 
           .item__img {
-            object-fit: cover;
             width: 100%;
             height: 100%;
+            object-fit: cover;
           }
         }
 
@@ -1194,7 +1183,7 @@ h4 {
         &__title {
           margin-bottom: 20px;
           font-family: 'Gilroy Bold', sans-serif;
-          line-height: 1.5em;
+          line-height: 2.25rem;
         }
 
         &__info {
@@ -1206,14 +1195,13 @@ h4 {
           .info {
 
             &__author, &__likes-counter, &__comments-counter {
+              position: relative;
               display: flex;
               align-items: center;
-              position: relative;
               padding-left: 20px;
-              color: #888888;
-              font-family: 'Gilroy Medium', sans-serif;
-              font-size: 0.75em;
-              line-height: 1.35em;
+              color: $gray-600;
+              font: 0.75rem/1.125rem 'Gilroy Medium', sans-serif;
+
 
               &::before {
                 position: absolute;
@@ -1242,27 +1230,13 @@ h4 {
         &__text {
           margin-bottom: 25px;
           color: $gray-700;
-          font-family: 'Gilroy Medium', sans-serif;
-          font-size: 0.95em;
-          line-height: 1.45em;
-        }
-
-        &__link {
-          font-family: 'Gilroy Bold';
-          font-size: 0.75em;
-          color: $black;
-          text-decoration: none;
-          transition: .15s ease-in-out;
-
-          &:hover {
-            color: $orange;
-          }
         }
       }
     }
 
     .slider__dots {
       @extend %flex-centered;
+
       position: relative;
       bottom: 0 !important;
       height: 12px;
@@ -1273,7 +1247,7 @@ h4 {
         height: 8px;
         margin: 0 6px;
         border-radius: 50%;
-        background: #dddddd;
+        background: $gray-300;
         cursor: pointer;
         transition: all .2s;
 
@@ -1285,10 +1259,10 @@ h4 {
     }
   }
 }
-
+// TODO: STAYED HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
 .footer {
   width: 100%;
-  background: #f3f3f3;
+  background: $gray-200;
 
   &__inner {
     display: flex;
