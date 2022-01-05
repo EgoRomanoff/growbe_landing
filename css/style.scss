@@ -38,6 +38,8 @@
   font-weight: normal;
   font-style: normal;
 }
+// ===== /FONTS =====
+
 // ===== VARS =====
 // ----- Colors -----
 $trueblack: #000;
@@ -67,12 +69,14 @@ $fs-primary: 16px;
 $lh-primary: 24px;
 // ----- /Line Heights -----
 // ===== /VARS =====
+
 // ===== MIXINS =====
 @mixin titleFont($title-fs, $title-lh) {
   font-size: $title-fs;
   line-height: $title-lh;
 }
 // ===== /MIXINS =====
+
 // ===== COMMON =====
 * {
   margin: 0;
@@ -110,6 +114,7 @@ h4 {
   @include titleFont(1.25rem, 1.875rem);
 }
 // ----- /Titles -----
+// ----- Extends -----
 %flex-centered {
   display: flex;
   justify-content: center;
@@ -136,7 +141,7 @@ h4 {
   background: $white;
   transition: .3s ease-out;
 }
-
+// ----- /Extends -----
 .section {
   position: relative;
   padding: 100px 0;
@@ -151,6 +156,61 @@ h4 {
     font: 1rem/1.5rem 'Gilroy Regular', sans-serif;
     margin-bottom: 55px;
   }
+
+  &__slider {
+
+    .slider__wrapper {
+      margin-bottom: 30px;
+      list-style: none;
+    }
+
+    .slider__slide {
+      padding: 0 15px;
+      width: 100%;
+      opacity: .5;
+    }
+
+    .swiper-slide-active {
+      opacity: 1;
+
+      .slide__inner {
+        box-shadow: 15px 25px 60px -10px rgba($trueblack, .1);
+        border-color: $white;
+      }
+    }
+
+    .slide__inner {
+      position: relative;
+      display: flex;
+      width: 100%;
+      border: 2px solid $gray-200;
+      transition: .3s ease-out;
+    }
+
+    .slider__dots {
+      @extend %flex-centered;
+
+      position: relative;
+      bottom: 0 !important;
+      height: 12px;
+
+      .dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin: 0 6px;
+        border-radius: 50%;
+        background: $gray-300;
+        cursor: pointer;
+        transition: all .2s;
+
+        &--active {
+          transform: scale(1.5);
+          background: $orange;
+        }
+      }
+    }
+  }
 }
 
 .container {
@@ -160,7 +220,6 @@ h4 {
   min-width: 320px;
   padding: 0 25px;
 }
-
 .button {
   @extend %flex-centered;
 
@@ -323,13 +382,12 @@ h4 {
   }
 }
 // ===== /HEADER =====
-
+// ===== MAIN =====
 .main {
   position: relative;
   padding-top: 120px;
 }
-
-// ===== HOMEPAGE =====
+// ----- Homepage -----
 .homepage {
   padding: 0;
 
@@ -451,8 +509,8 @@ h4 {
     }
   }
 }
-// ===== /HOMEPAGE =====
-// ===== BRANDS =====
+// ----- /Homepage -----
+// ----- Brands -----
 .brands {
 
   &__inner {
@@ -474,8 +532,8 @@ h4 {
     transition: .2s;
   }
 }
-// ===== /BRANDS =====
-// ===== ABOUT US =====
+// ----- /Brands -----
+// ----- About Us -----
 .about-us {
   padding: 0;
   background: $gray-100;
@@ -516,8 +574,8 @@ h4 {
     }
   }
 }
-// ===== /ABOUT US =====
-// ===== FEATURES =====
+// ----- /About Us -----
+// ----- Features -----
 .features {
 
   &__inner {
@@ -577,8 +635,8 @@ h4 {
     }
   }
 }
-// ===== /FEATURES =====
-// ===== SERVICES =====
+// ----- /Features -----
+// ----- Services -----
 .services {
   background: $gray-100;
 
@@ -658,8 +716,8 @@ h4 {
     }
   }
 }
-// ===== /SERVICES =====
-// ===== WHAT WE DO =====
+// ----- /Services -----
+// ----- What We Do -----
 .what-we-do {
 
   .background__img {
@@ -739,8 +797,8 @@ h4 {
     }
   }
 }
-// ===== /WHAT WE DO =====
-// ===== FACTS =====
+// ----- /What We Do -----
+// ----- Facts -----
 .facts {
 
   &__list {
@@ -793,8 +851,8 @@ h4 {
     }
   }
 }
-// ===== /FACTS =====
-// ===== CHECKING =====
+// ----- /Facts -----
+// ----- Checking -----
 .checking {
 
   .background__img {
@@ -851,8 +909,8 @@ h4 {
     }
   }
 }
-// ===== /CHECKING =====
-// ===== PLANS =====
+// ----- /Checking -----
+// ----- Plans -----
 .plans {
   background: $gray-100;
 
@@ -936,8 +994,8 @@ h4 {
     }
   }
 }
-// ===== /PLANS =====
-// ===== TEAM =====
+// ----- /Plans -----
+// ----- Team -----
 .team {
 
   &__inner {
@@ -997,8 +1055,8 @@ h4 {
     }
   }
 }
-// ===== /TEAM =====
-// ===== TESTIMONIALS ======
+// ----- /Team -----
+// ----- Testimonials -----
 .testimonials {
   @extend %inner--centeredX;
 
@@ -1010,39 +1068,21 @@ h4 {
 
   &__slider {
 
-    .slider__wrapper {
-      margin-bottom: 30px;
-      list-style: none;
-    }
-
     .slider__slide {
-      padding: 0 15px;
-      width: 100%;
       max-width: 600px;
-      opacity: .5;
     }
 
-    .swiper-slide-active, .swiper-slide-next {
+    .swiper-slide-next {
       opacity: 1;
     }
 
-    .swiper-slide-active .slide__inner {
-      box-shadow: 15px 25px 60px -10px rgba($trueblack, .1);
-      border-color: $white;
-    }
-
     .slide__inner {
-      position: relative;
-      display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
-      border: 2px solid $gray-200;
       padding: 25px 30px;
       color: $gray-600;
       font: 1rem/1.5rem 'Gilroy Regular', sans-serif;
       text-align: center;
-      transition: .3s ease-out;
 
       &::after {
         position: absolute;
@@ -1076,33 +1116,10 @@ h4 {
         }
       }
     }
-
-    .slider__dots {
-      @extend %flex-centered;
-
-      position: relative;
-      bottom: 0 !important;
-      height: 12px;
-
-      .dot {
-        display: block;
-        width: 8px;
-        height: 8px;
-        margin: 0 6px;
-        border-radius: 50%;
-        background: $gray-300;
-        cursor: pointer;
-        transition: all .2s;
-
-        &--active {
-          transform: scale(1.5);
-          background: $orange;
-        }
-      }
-    }
   }
 }
-// ===== /TESTIMONIALS ======
+// ----- /Testimonials -----
+// ----- Blog -----
 .blog {
   @extend %inner--centeredX;
 
@@ -1114,16 +1131,8 @@ h4 {
 
   &__slider {
 
-    .slider__wrapper {
-      margin-bottom: 30px;
-      list-style: none;
-    }
-
     .slider__slide {
-      padding: 0 15px;
-      width: 100%;
       max-width: 800px;
-      opacity: .5;
 
       .item__content .button--read-more {
         display: none;
@@ -1131,12 +1140,6 @@ h4 {
     }
 
     .swiper-slide-active {
-      opacity: 1;
-
-      .slide__inner {
-        box-shadow: 15px 25px 60px -10px rgba($trueblack, .1);
-        border-color: $white;
-      }
 
       .item__content .button--read-more {
         display: inline-block;
@@ -1144,15 +1147,10 @@ h4 {
     }
 
     .slide__inner {
-      position: relative;
-      display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 100%;
       height: 330px;
-      border: 2px solid $gray-200;
       font: 1rem/1.5rem 'Gilroy Medium', sans-serif;
-      transition: .3s ease-out;
 
       .item {
 
@@ -1229,33 +1227,11 @@ h4 {
         }
       }
     }
-
-    .slider__dots {
-      @extend %flex-centered;
-
-      position: relative;
-      bottom: 0 !important;
-      height: 12px;
-
-      .dot {
-        display: block;
-        width: 8px;
-        height: 8px;
-        margin: 0 6px;
-        border-radius: 50%;
-        background: $gray-300;
-        cursor: pointer;
-        transition: all .2s;
-
-        &--active {
-          transform: scale(1.5);
-          background: $orange;
-        }
-      }
-    }
   }
 }
-// TODO: STAYED HERE!!!!!!!!!!!!!!!!!!!!!!!!!!
+// ----- /Blog -----
+// ===== /MAIN =====
+// ===== FOOTER =====
 .footer {
   width: 100%;
   background: $gray-200;
@@ -1263,40 +1239,26 @@ h4 {
   &__inner {
     display: flex;
     column-gap: 50px;
-    padding: 100px 0 100px;
+    padding: 100px 0;
   }
 
   &__info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     flex-basis: 270px;
+    color: $gray-700;
+    font: 1rem/1.7rem 'Gilroy Medium', sans-serif;
 
-    .logo {
-      display: flex;
-      align-items: center;
+    .main-logo {
       margin-bottom: 40px;
-      font: 1.5em 'Gilroy Bold';
-      text-decoration: none;
-
-      &__img {
-        margin-right: 14px;
-      }
-
-      &__text {
-        color: #000000;
-
-        & span {
-          color: #f25822;
-        }
-      }
     }
 
     .info__text {
-      margin-bottom: 25px;
-      color: $gray-700;
-      font-family: 'Gilroy Medium';
-      line-height: 1.6em;
+      margin-bottom: 20px;
+    }
+
+    .social__list {
+      margin-top: auto;
     }
   }
 
@@ -1308,9 +1270,8 @@ h4 {
     .links {
 
       &__title {
-        font-family: 'Gilroy Bold';
-        line-height: 1.67em;
         margin-bottom: 40px;
+        line-height: 2.5rem;
       }
 
       &__list {
@@ -1318,9 +1279,9 @@ h4 {
       }
 
       &__item {
-        margin-bottom: 20px;
-        font-family: 'Gilroy Medium';
+        margin-bottom: 16px;
         color: $gray-700;
+        font-family: 'Gilroy Semibold', sans-serif;
 
         &:nth-last-child(1) {
           margin-bottom: 0;
@@ -1334,7 +1295,7 @@ h4 {
       &__link {
         color: $gray-700;
         text-decoration: none;
-        transition: color .2s;
+        transition: .2s;
 
         &:hover {
           color: $orange
@@ -1349,8 +1310,8 @@ h4 {
         }
 
         .links__item > span {
-          font-family: 'Gilroy Bold', sans-serif;
           color: $black;
+          font-family: 'Gilroy Bold', sans-serif;
         }
       }
     }
@@ -1358,13 +1319,14 @@ h4 {
 
   .copyright {
     padding: 20px 0;
-    color: #888888;
+    color: $gray-600;
     font-family: 'Gilroy Medium', sans-serif;
     text-align: center;
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid $gray-400;
   }
 }
-
+// ===== /FOOTER =====
+// ===== KEYFRAMES =====
 @keyframes scaling {
   0% {
     transform: scale(1);
@@ -1412,3 +1374,4 @@ h4 {
     transform: translateX(0);
   }
 }
+// ===== /KEYFRAMES =====
