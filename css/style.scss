@@ -218,7 +218,6 @@ h4 {
   position: relative;
   margin: 0 auto;
   max-width: 1220px;
-  min-width: 320px;
   padding: 0 25px;
 }
 
@@ -1182,14 +1181,14 @@ h4 {
       max-width: 800px;
 
       .item__content .button--read-more {
-        display: none;
+        opacity: 0;
       }
     }
 
     .swiper-slide-active {
 
       .item__content .button--read-more {
-        display: inline-block;
+        opacity: 1;
       }
     }
 
@@ -1517,7 +1516,7 @@ h4 {
     padding: 35px 30px;
 
       &:hover {
-        padding: 50px 30px;
+        padding: 35px 30px;
       }
     }
   }
@@ -1561,8 +1560,8 @@ h4 {
 
   .header {
 
-    .button {
-      margin-left: auto;
+    &__inner .button--primary {
+      display: none;
     }
 
     &__menu {
@@ -1572,8 +1571,7 @@ h4 {
       top: 0px;
       right: 0;
       width: 100%;
-      max-width: 440px;
-      height: 100vh;
+      height: 100%;
       flex-direction: column;
       background: $white;
       transform: translateX(100%);
@@ -1883,6 +1881,7 @@ h4 {
     }
 
     &__inner {
+      max-width: 100%;
       height: auto;
       margin: 0 auto;
       padding: 0;
@@ -1995,14 +1994,14 @@ h4 {
         'title options'
         'price options'
         'button options';
-      grid-template-columns: 160px 205px;
-      column-gap: 60px;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
       width: 100%;
       flex-basis: auto;
-      padding: 25px;
+      padding: 20px;
 
       &:hover {
-        padding: 25px;
+        padding: 20px;
       }
 
       .item {
@@ -2040,9 +2039,14 @@ h4 {
           grid-area: options;
           align-items: flex-start;
           justify-content: space-between;
+          gap: 10px;
           height: 100%;
           margin-bottom: 0;
-          text-align: right;
+          text-align: left;
+
+          .options__item {
+            line-height: 1.6rem;
+          }
         }
       }
 
@@ -2050,6 +2054,7 @@ h4 {
         grid-area: button;
         width: 100%;
         max-width: 200px;
+        margin: 0 auto;
       }
     }
   }
@@ -2103,6 +2108,11 @@ h4 {
 
   .testimonials {
 
+    .section__text {
+      max-width: none;
+      padding: 0 25px;
+    }
+
     &__slider {
 
       .slider__slide {
@@ -2123,6 +2133,11 @@ h4 {
   }
 
   .blog {
+
+    .section__text {
+      max-width: none;
+      padding: 0 25px;
+    }
 
     &__slider {
 
@@ -2211,5 +2226,201 @@ h4 {
     }
   }
 }
-//TODO: ДОДЕЛАТЬ АДАПТИВ
+
+@media (max-width: 480px) {
+
+  h2 {
+    @include titleFont(2rem, 2.4rem);
+  }
+
+  .container {
+    padding: 0 25px;
+  }
+
+  .features {
+
+    &__inner {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .features__card {
+      padding: 20px 20px 20px 90px;
+      flex: 1 1 auto;
+
+      &::before {
+        top: calc(50% - 25px);
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+      }
+    }
+
+    .card {
+
+      &__title {
+        margin-bottom: 10px;
+      }
+
+      &__text {
+        margin-bottom: 15px;
+        font: 1rem/1.4rem 'Gilroy Regular', sans-serif;
+      }
+    }
+  }
+
+  .services {
+
+    &__cards-wrapper {
+      gap: 15px;
+    }
+
+    &__card {
+      z-index: 1;
+
+      .card {
+
+        &__img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: .1;
+          z-index: -1;
+        }
+
+        &__inner {
+          padding: 20px;
+        }
+
+        &__title {
+          margin-bottom: 10px;
+        }
+
+        &__text {
+          margin-bottom: 20px;
+          font: 1rem/1.4rem 'Gilroy Regular', sans-serif;
+        }
+      }
+    }
+  }
+
+  .what-we-do {
+
+    &__item {
+      padding: 20px 20px 20px 90px;
+
+      &::before {
+        top: calc(50% - 25px);
+        left: 20px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .item {
+
+        &__text {
+          font: 1rem/1.4rem 'Gilroy Regular', sans-serif;
+        }
+      }
+    }
+  }
+
+  .checking {
+
+    &__inner {
+
+    }
+
+    &__form {
+
+      .form {
+
+        &__url, &__email {
+          flex-basis: 80%;
+          margin-bottom: 10px;
+          border-radius: 50px;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .plans {
+
+    &__list {
+      gap: 15px;
+    }
+
+    &__item {
+      column-gap: 20px;
+
+      .item {
+
+        &__title {
+
+        }
+
+        &__price {
+
+        }
+
+        &__options {
+
+        }
+      }
+    }
+  }
+
+  .team {
+
+    &__member {
+      grid-template-columns: 25% auto;
+      flex: 1 1 100%;
+      padding: 20px;
+    }
+  }
+
+  .testimonials {
+
+    &__slider {
+
+      .slider__slide {
+        max-width: 100vw;
+      }
+    }
+  }
+
+
+  .blog {
+
+    &__slider {
+
+      .slider__slide {
+        max-width: 100%;
+      }
+
+      .slide__inner {
+
+        .item {
+
+          &__img-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex: 1 1 100%;
+            max-width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: .1;
+          }
+        }
+      }
+    }
+  }
+}
+//TODO: НАСТРОИТЬ СЛАЙДЕРЫ ПРИ АДАПТИВЕ
 // ===== /MEDIA QUERIES =====
