@@ -2,6 +2,8 @@ const testimonialsSlider = new Swiper('.testimonials__slider', {
   slidesPerView: 'auto',
   loop: false,
   centeredSlides: true,
+  spaceBetween: 30,
+  // setWrapperSize: true,
 
   pagination: {
     el: '.slider__dots',
@@ -15,6 +17,8 @@ const blogSlider = new Swiper('.blog__slider', {
   slidesPerView: 'auto',
   loop: false,
   centeredSlides: true,
+  spaceBetween: 30,
+  // setWrapperSize: true,
 
   pagination: {
     el: '.slider__dots',

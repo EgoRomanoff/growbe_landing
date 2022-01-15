@@ -152,9 +152,9 @@ h4 {
   }
 
   &__text {
+    margin-bottom: 55px;
     color: $gray-700;
     font: 1rem/1.5rem 'Gilroy Regular', sans-serif;
-    margin-bottom: 55px;
   }
 
   &__slider {
@@ -165,8 +165,6 @@ h4 {
     }
 
     .slider__slide {
-      padding: 0 15px;
-      width: 100%;
       opacity: .5;
     }
 
@@ -427,7 +425,7 @@ h4 {
 }
 
 .main {
-  position: relative;
+  // position: relative;
   padding-top: 120px;
 }
 
@@ -1046,6 +1044,10 @@ h4 {
     @extend %inner--centeredX;
   }
 
+  .section__title {
+    text-align: center;
+  }
+
   .section__text {
     width: 100%;
     max-width: 460px;
@@ -1104,9 +1106,14 @@ h4 {
 // ----- /Team -----
 // ----- Testimonials -----
 .testimonials {
-  @extend %inner--centeredX;
+
+  .section__title {
+    text-align: center;
+  }
 
   .section__text {
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     max-width: 570px;
     text-align: center;
@@ -1115,7 +1122,8 @@ h4 {
   &__slider {
 
     .slider__slide {
-      max-width: 600px;
+      width: 100%;
+      max-width: 570px;
     }
 
     .swiper-slide-next {
@@ -1167,9 +1175,14 @@ h4 {
 // ----- /Testimonials -----
 // ----- Blog -----
 .blog {
-  @extend %inner--centeredX;
+
+  .section__title {
+    text-align: center;
+  }
 
   .section__text {
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     max-width: 570px;
     text-align: center;
@@ -1178,6 +1191,7 @@ h4 {
   &__slider {
 
     .slider__slide {
+      width: 100%;
       max-width: 800px;
 
       .item__content .button--read-more {
@@ -1470,10 +1484,6 @@ h4 {
     padding: 45px 0;
   }
 
-  .container {
-    padding: 0 35px;
-  }
-
   .background__img {
     opacity: .8;
     height: 100%;
@@ -1761,13 +1771,6 @@ h4 {
 
     &__text {
       margin-bottom: 30px;
-    }
-
-    &__slider {
-
-      .slider__slide {
-        padding: 0 10px;
-      }
     }
   }
 
@@ -2110,13 +2113,12 @@ h4 {
 
     .section__text {
       max-width: none;
-      padding: 0 25px;
     }
 
     &__slider {
 
       .slider__slide {
-        max-width: 320px;
+        max-width: 65%;
       }
 
       .slide__inner {
@@ -2136,13 +2138,12 @@ h4 {
 
     .section__text {
       max-width: none;
-      padding: 0 25px;
     }
 
     &__slider {
 
       .slider__slide {
-        max-width: 80%;
+        max-width: 75%;
       }
 
       .slide__inner {
@@ -2167,7 +2168,7 @@ h4 {
 
           &__info {
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: flex-start;
             gap: 10px;
             margin-bottom: 15px;
             max-width: 100%;
@@ -2231,10 +2232,6 @@ h4 {
 
   h2 {
     @include titleFont(2rem, 2.4rem);
-  }
-
-  .container {
-    padding: 0 25px;
   }
 
   .features {
@@ -2389,18 +2386,17 @@ h4 {
     &__slider {
 
       .slider__slide {
-        max-width: 100vw;
+        max-width: 90%;
       }
     }
   }
-
 
   .blog {
 
     &__slider {
 
       .slider__slide {
-        max-width: 100%;
+        max-width: 90%;
       }
 
       .slide__inner {
@@ -2421,6 +2417,160 @@ h4 {
       }
     }
   }
+
+  .footer {
+
+    &__inner {
+      gap: 15px;
+      padding: 30px 0;
+    }
+
+    &__links {
+      flex-wrap: wrap;
+      .links {
+
+        &__section {
+          flex: 1 1 auto;
+        }
+
+        &__title {
+          margin-bottom: 10px;
+        }
+
+        &--contacts {
+          flex: 1 1 100%;
+        }
+      }
+    }
+  }
 }
-//TODO: НАСТРОИТЬ СЛАЙДЕРЫ ПРИ АДАПТИВЕ
+
+@media (max-width: 375px) {
+
+  h1 {
+    @include titleFont(3rem, 3.5rem);
+  }
+
+  .homepage {
+
+    .background {
+
+      &__polygon--1 {
+        top: 10%;
+        left: -4%;
+      }
+
+      &__polygon--2 {
+        top: 3%;
+        left: 85%;
+      }
+
+      &__polygon--3 {
+        bottom: 10%;
+        left: 87%;
+      }
+    }
+
+    &__controls {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      .button + .button {
+        margin: 0;
+      }
+    }
+  }
+
+  .features {
+
+    .features__card {
+      padding: 5px 15px 15px;
+      z-index: 0;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 0 0 50% 0;
+        z-index: -1;
+      }
+    }
+
+    .card__title {
+      padding-right: 5px;
+      line-height: 3rem;
+      text-align: right;
+    }
+  }
+
+  .what-we-do {
+
+    &__item {
+      z-index: 0;
+      padding: 15px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 0 0 50%;
+        opacity: .2;
+      }
+
+      .item__title {
+        padding: 0 60px;
+      }
+    }
+  }
+
+  .plans {
+
+    &__item {
+      grid-template-areas:
+        'title button'
+        'price price'
+        'options options';
+      gap: 15px;
+
+      .item {
+
+        &__title {
+          text-align: left;
+        }
+
+        &__price {
+
+          span:nth-child(1) {
+            line-height: 1rem;
+          }
+
+          span:nth-child(2) {
+            font: 2rem/100% 'Gilroy Semibold', sans-serif;
+          }
+
+          span:nth-child(2) {
+            line-height: 1rem;
+          }
+        }
+
+        &__options {
+
+          .options__item {
+            line-height: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+
+  .team {
+
+    &__member {
+      column-gap: 15px;
+      padding: 15px;
+    }
+  }
+}
 // ===== /MEDIA QUERIES =====
