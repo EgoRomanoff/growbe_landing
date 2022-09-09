@@ -31,4 +31,13 @@
 ## Realizing
 This landing was made according to the [Figma-layout](https://www.figma.com/file/6eFW6rR3QTgNqxf7OVhfsd/GrowBe)
 
+While working on the project, I have mastered:
+* basic structure of landing pages;
+* using optimized (WebP) and vector (svg) images;
+* animation of svg images;
+* using semantic HTML-tags;
+* creating elements' sliders ([Swiper.js](https://swiperjs.com/get-started));
+* creating adaptive layout by using [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries);
+* using [CSS Flex](https://www.w3.org/TR/css-flexbox-1/).
+
 ## Difficulties
