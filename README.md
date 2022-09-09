@@ -36,10 +36,10 @@ This is simple landing page with basic functions. It consists of standard landin
 * a simple form for quick communication with customers;
 * pricing information;
 * team presentation;
-* different sliders (blog articles, customers' feedback, etc.)
+* different sliders (blog articles, customers' feedback, etc.).
 
 ## Realizing
-This landing was made according to the [Figma-layout](https://www.figma.com/file/6eFW6rR3QTgNqxf7OVhfsd/GrowBe)
+This landing was made according to the [Figma-layout](https://www.figma.com/file/6eFW6rR3QTgNqxf7OVhfsd/GrowBe).
 
 While working on the project, I have mastered:
 * basic structure of landing pages;
