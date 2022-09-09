@@ -24,9 +24,19 @@
 
 ![growbe](https://user-images.githubusercontent.com/67374276/189453763-3b726a78-b55d-4e0c-8744-a91eeebc3b5e.png)
 
-[**GrowBe**](https://egoromanoff.github.io/growbe_landing/) - simple adaptive landing-page.
+[**GrowBe**](https://egoromanoff.github.io/growbe_landing/) - simple adaptive landing page.
 
 ## Features
+This is simple landing page with basic functions. It consists of standard landing page sections:
+* header and footer
+* main screen;
+* partners section;
+* different info screens, lists, cards;
+* common statistics;
+* a simple form for quick communication with customers;
+* pricing information;
+* team presentation;
+* different sliders (blog articles, customers' feedback, etc.)
 
 ## Realizing
 This landing was made according to the [Figma-layout](https://www.figma.com/file/6eFW6rR3QTgNqxf7OVhfsd/GrowBe)
