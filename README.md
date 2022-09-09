@@ -35,7 +35,7 @@ While working on the project, I have mastered:
 * basic structure of landing pages;
 * using optimized (WebP) and vector (svg) images;
 * animation of svg images;
-* using semantic HTML-tags;
+* using [semantic HTML-tags](https://www.w3schools.com/html/html5_semantic_elements.asp);
 * creating elements' sliders ([Swiper.js](https://swiperjs.com/get-started));
 * creating adaptive layout by using [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries);
 * using [CSS Flex](https://www.w3.org/TR/css-flexbox-1/).
