@@ -22,14 +22,13 @@
 
 ## Demo
 
-![i-must-do-demo-optimized](https://user-images.githubusercontent.com/67374276/189445715-4ac7953f-424c-4d6e-a932-8c0b761fd833.gif)
+![growbe](https://user-images.githubusercontent.com/67374276/189453763-3b726a78-b55d-4e0c-8744-a91eeebc3b5e.png)
 
 [**GrowBe**](https://egoromanoff.github.io/growbe_landing/) - simple adaptive landing-page.
 
 ## Features
 
-
 ## Realizing
-
+This landing was made according to the [Figma-layout](https://www.figma.com/file/6eFW6rR3QTgNqxf7OVhfsd/GrowBe)
 
 ## Difficulties
