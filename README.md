@@ -27,7 +27,7 @@
 [**GrowBe**](https://egoromanoff.github.io/growbe_landing/) - simple adaptive landing page.
 
 ## Features
-This is simple landing page with basic functions. It consists of standard landing page sections:
+This is a simple landing page with basic functions. It consists of standard landing page sections:
 * header and footer
 * main screen;
 * partners section;
