@@ -57,6 +57,4 @@ During the development , the main difficulties were:
 
 The problem of **configuration and styling of sliders** was to analyze the structure of the elements [Swiper.js](https://swiperjs.com/get-started) . Solution - detailed reading of the documentation 😃
 
-The problem of **creating rules for adaptive styling**
-
 When I working on this project, I encountered with **creating an adaptive layout** for the first time. So it became a problem for me. Thanks to this, I got acquainted with [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
