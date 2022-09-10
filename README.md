@@ -51,3 +51,6 @@ While working on the project, I have mastered:
 * using [CSS Flex](https://www.w3.org/TR/css-flexbox-1/).
 
 ## Difficulties
+During the development , the main difficulties were:
+1. connecting and styling sliders;
+2. creating styles for different screen sizes
